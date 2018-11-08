@@ -1,0 +1,2 @@
+set nobackup
+syntax enable
