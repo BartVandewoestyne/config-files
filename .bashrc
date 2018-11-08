@@ -1,1 +1,1 @@
-alias ls='ls -hF --color=tty'
+alias ls='ls --color=auto'
