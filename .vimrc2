@@ -1,0 +1,69 @@
+" Check the file extension to see if we need to use fixed or free
+" source form for the syntax highlighting.
+let s:extfname = expand("%:e")
+if (s:extfname ==? "f90") || (s:extfname ==? "f95" || (s:extfname==? "f03"))
+    let fortran_free_source=1
+    unlet! fortran_fixed_source
+else
+    let fortran_fixed_source=1
+    unlet! fortran_free_source
+endif
+
+"let fortran_have_tabs=1
+
+" switch on syntax highlighting for a dark background.
+" set background=dark
+syntax enable
+
+" use the visual bell instead of beeping.
+set visualbell
+
+" Type of indentation.
+"set cindent
+"set smartindent
+set autoindent
+
+" Use the first available 'tags' file in the directory tree.  Recursively
+" search upwards for the tags file.  This is useful if you have multimple
+" tag files (across different projects) or your current working directory
+" changes.
+set tags=tags;/
+
+" number of spaces to use for each step of (auto)indent.
+set shiftwidth=4
+
+" maximum width of text that is being inserted.  If the 'paste'
+" option is set, this is disabled.
+" A textwidth 80 is common for xterms and console.
+set textwidth=80
+
+" for mail and news, allow only a textwidth of 65, which is recommended by
+" RFC 1855
+autocmd FileType mail set textwidth=65
+
+autocmd FileType tex nmap <F5> :w<CR>:!pdflatex %<CR>
+autocmd FileType tex set nocindent
+
+" Tab Stop = 2 spaces???
+set ts=2
+
+" In Insert mode: Use the appropriate number of spaces to insert a <Tab>,
+" except for editing Makefiles
+set expandtab
+au FileType make setlocal noexpandtab
+
+" For Maxima syntax highlighting
+au BufRead,BufNewFile *.mac set filetype=maxima
+au BufRead,BufNewFile *.dem set filetype=maxima
+"au! Syntax newlang source $VIM/newlanguage.vim
+
+" for Hive .hql files
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
+
+" SPARQL syntax highlighting
+autocmd BufNewFile,BufReadPost *.rq set filetype=sparql
+
+" show linenumbers.
+"set number
+
+"set enc=utf-8
