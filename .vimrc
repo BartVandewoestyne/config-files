@@ -5,3 +5,5 @@ set nobackup
 syntax enable
 filetype on
 set expandtab
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
