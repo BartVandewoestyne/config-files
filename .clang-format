@@ -1,0 +1,10 @@
+---
+Language:        Cpp
+BraceWrapping:
+  AfterClass: true
+  AfterEnum: true
+  AfterNamespace:  true
+BreakBeforeBraces: Custom
+IndentWidth:     4
+...
+
